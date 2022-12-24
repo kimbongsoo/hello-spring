@@ -18,10 +18,10 @@ class MemberServiceIntegrationTest {
 
 
     @Test
-    public void 회원가입() throws Exception {
+     void 회원가입() throws Exception {
         //Given
         Member member = new Member();
-        member.setName("hello");
+        member.setName("spring100");
         //When
         Long saveId = memberService.join(member);
         //Then
@@ -36,11 +36,11 @@ class MemberServiceIntegrationTest {
         Member member2 = new Member();
         member2.setName("spring");
         //When
-        IllegalStateException e1 = assertThrows(IllegalStateException.class,
-                () -> memberService.join(member1));//예외가 발생해야 한다.
-        assertThat(e1.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
+//        IllegalStateException e1 = assertThrows(IllegalStateException.class,
+//                () -> memberService.join(member1));//예외가 발생해야 한다.
+//        assertThat(e1.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 
-//        memberService.join(member1);
+        memberService.join(member1);
         IllegalStateException e = assertThrows(IllegalStateException.class,
                 () -> memberService.join(member2));//예외가 발생해야 한다.
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
